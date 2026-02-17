@@ -1,6 +1,8 @@
 {
   "name": "Email Sorter Power-Up",
-  "capabilities": {
-    "board-buttons": []
+  "details": "Power up development placeholder",
+  "capabilities": { }
+  "auth": {
+    "type": "none"
   }
 }
