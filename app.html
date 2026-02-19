@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inbox Intelligence — Email Sorting Demo</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+
+</head>
+
+<body>
+  <div class="page">
+    <div class="layout">
+
+      <!-- ── LEFT COLUMN: header + steps + tooltip ── -->
+      <div class="left-col">
+
+        <header class="header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Live Demo
+          </div>
+          <h1>Your inbox,<br /><em>finally sorted.</em></h1>
+          <p class="subtitle">
+            An automated email triage system that reads, classifies, and routes 
+            incoming messages to the right Trello list — so nothing important 
+            gets buried.
+          </p>
+        </header>
+
+        <!-- ── How it works ── -->
+        <div class="how-it-works">
+          <div class="step">
+            <div class="step-left">
+              <span class="step-number">01</span>
+              <span class="step-icon">✉️</span>
+            </div>
+            <div>
+              <div class="step-label">Email comes in</div>
+              <div class="step-desc">Paste or generate a sample email to get started.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <span class="step-number">02</span>
+              <span class="step-icon">🔍</span>
+            </div>
+            <div>
+              <div class="step-label">System classifies it</div>
+              <div class="step-desc">Content, sender, and subject are scored against weighted rules.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <span class="step-number">03</span>
+              <span class="step-icon">📋</span>
+            </div>
+            <div>
+              <div class="step-label">Card lands in Trello</div>
+              <div class="step-desc">Routed to the correct list — Finance, Travel, Calendar, and more.</div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- ── Footer ── -->
+        <p class="footer-note">
+          Built with the <a href="#">Trello API</a> &amp; a custom JS classification engine.
+        </p>
+
+      </div>
+
+      <!-- ── RIGHT COLUMN: email card ── -->
+      <div class="right-col">
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-dots">
+              <div class="card-dot"></div>
+              <div class="card-dot"></div>
+              <div class="card-dot"></div>
+            </div>
+            <span class="card-title">New Email</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="sender">From</label>
+            <input
+              id="sender"
+              type="text"
+              placeholder="sender@example.com"
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="subject">Subject</label>
+            <input
+              id="subject"
+              type="text"
+              placeholder="What's this about?"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="body">Body</label>
+            <textarea
+              id="body"
+              placeholder="Paste or type the email body here..."
+              spellcheck="false"
+            ></textarea>
+          </div>
+
+          <div class="card-footer">
+            <button class="btn btn-ghost" id="btn-generate" onclick=generateRandomEmail()>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              </svg>
+              Generate random email
+            </button>
+
+            <button class="btn btn-primary" id="btn-send" onclick=sendEmail()>
+              Send to Trello
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      <div id="statusBox"></div>
+      </div>
+     
+    </div><!-- /.layout --> 
+    
+  </div>      
+  
+  <!-- ── Status box ── -->
+        
+ 
+  <!-- ── Tooltip (fixed, bottom-right) ── -->
+  <button class="help-btn" aria-label="Why this project?">?</button>
+  <div class="tooltip-panel">
+    <div class="help-tooltip">
+    <h3>Why This Project Exists</h3>
+    <p>
+    Managing a high-volume inbox means making a lot of small decisions quickly — 
+    what needs attention now, what can wait, and what isn't worth reading at all. 
+    Done manually, that process is tedious and something important can always slip 
+    through the cracks.
+    </p>
+    <p>
+    This tool automates that triage. It reads incoming emails, classifies them by 
+    type, and routes each one directly into the correct Trello list: Finance, 
+    Travel, Calendar, and more — so the right messages surface immediately without 
+    digging through the noise. Anything urgent gets flagged before it gets lost.
+    </p>
+     <p>
+    Use the demo above to test it with any email and see how it gets categorized 
+    and turned into a Trello card in real time.
+     </p>
+
+    </div>
+  </div>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="emailclassifier.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
