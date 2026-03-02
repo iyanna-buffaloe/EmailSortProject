@@ -88,7 +88,7 @@ function showStatus(message, success) {
 }
 
 /* ── View toggle (Explanation / Video Demo) ── */
-const YOUTUBE_VIDEO_URL = "https://www.youtube.com/embed/VIDEO_ID_HERE";
+const YOUTUBE_VIDEO_URL = "https://www.youtube.com/embed/XUGOcqimcWY";
 
 function showExplanation() {
   document.getElementById("explanation-view").style.display = "";
