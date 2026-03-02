@@ -82,7 +82,34 @@ function showStatus(message, success) {
   // Remove animation class to reset it, force reflow, then re-add
   statusBox.classList.remove("success", "error", "animate");
   void statusBox.offsetWidth; // forces the browser to reflow, restarting the animation
-  
+
   statusBox.classList.add(success ? "success" : "error");
   statusBox.innerHTML = message;
+}
+
+/* ── View toggle (Explanation / Video Demo) ── */
+const YOUTUBE_VIDEO_URL = "https://www.youtube.com/embed/VIDEO_ID_HERE";
+
+function showExplanation() {
+  document.getElementById("explanation-view").style.display = "";
+  document.getElementById("video-view").style.display = "none";
+  document.getElementById("btn-explanation").classList.add("active");
+  document.getElementById("btn-video").classList.remove("active");
+
+  // Stop video playback when switching away
+  const iframe = document.getElementById("demo-video");
+  iframe.src = "";
+}
+
+function showVideo() {
+  document.getElementById("explanation-view").style.display = "none";
+  document.getElementById("video-view").style.display = "";
+  document.getElementById("btn-video").classList.add("active");
+  document.getElementById("btn-explanation").classList.remove("active");
+
+  // Load video when switching to video view
+  const iframe = document.getElementById("demo-video");
+  if (!iframe.src || iframe.src === window.location.href) {
+    iframe.src = YOUTUBE_VIDEO_URL;
+  }
 }
