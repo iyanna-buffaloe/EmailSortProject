@@ -32,38 +32,63 @@
           </p>
         </header>
 
-        <!-- ── How it works ── -->
-        <div class="how-it-works">
-          <div class="step">
-            <div class="step-left">
-              <span class="step-number">01</span>
-              <span class="step-icon">✉️</span>
+        <!-- ── Content toggle area ── -->
+        <div class="content-toggle-area">
+
+          <!-- ── How it works ── -->
+          <div class="how-it-works" id="explanation-view">
+            <div class="step">
+              <div class="step-left">
+                <span class="step-number">01</span>
+                <span class="step-icon">✉️</span>
+              </div>
+              <div>
+                <div class="step-label">Email comes in</div>
+                <div class="step-desc">Paste or generate a sample email to get started.</div>
+              </div>
             </div>
-            <div>
-              <div class="step-label">Email comes in</div>
-              <div class="step-desc">Paste or generate a sample email to get started.</div>
+            <div class="step">
+              <div class="step-left">
+                <span class="step-number">02</span>
+                <span class="step-icon">🔍</span>
+              </div>
+              <div>
+                <div class="step-label">System classifies it</div>
+                <div class="step-desc">Content, sender, and subject are scored against weighted rules.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <span class="step-number">03</span>
+                <span class="step-icon">📋</span>
+              </div>
+              <div>
+                <div class="step-label">Card lands in Trello</div>
+                <div class="step-desc">Routed to the correct list — Finance, Travel, Calendar, and more.</div>
+              </div>
             </div>
           </div>
-          <div class="step">
-            <div class="step-left">
-              <span class="step-number">02</span>
-              <span class="step-icon">🔍</span>
-            </div>
-            <div>
-              <div class="step-label">System classifies it</div>
-              <div class="step-desc">Content, sender, and subject are scored against weighted rules.</div>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-left">
-              <span class="step-number">03</span>
-              <span class="step-icon">📋</span>
-            </div>
-            <div>
-              <div class="step-label">Card lands in Trello</div>
-              <div class="step-desc">Routed to the correct list — Finance, Travel, Calendar, and more.</div>
+
+          <!-- ── Video demo ── -->
+          <div class="video-container" id="video-view" style="display: none;">
+            <div class="video-wrapper">
+              <iframe
+                id="demo-video"
+                src=""
+                title="Video Demo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
+
+          <!-- ── Toggle buttons ── -->
+          <div class="view-toggle">
+            <button class="toggle-btn active" id="btn-explanation" onclick="showExplanation()">Explanation</button>
+            <button class="toggle-btn" id="btn-video" onclick="showVideo()">Video Demo</button>
+          </div>
+
         </div>
 
 
